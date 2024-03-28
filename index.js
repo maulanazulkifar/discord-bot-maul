@@ -31,14 +31,19 @@ client.on("messageCreate", (message) => {
 
     // Tanggapi perintah 'ping'
     if (command === "tanyacoco") {
-      chatWithGPT(message.content)
-        .then((outputText) => {
-          message.reply(outputText);
-          console.log("GPT Response:", outputText);
-        })
-        .catch((error) => {
-          console.error("Failed to chat with GPT:", error);
-        });
+      const commandWithoutPrefix = message.content.slice(message.content.indexOf(' ') + 1);
+      if (commandWithoutPrefix === "aku ke kota ga hari ini?") {
+        message.reply("jangan ke kota mending sentuh rumput");
+      } else {
+        chatWithGPT(message.content)
+            .then((outputText) => {
+              message.reply(outputText);
+              console.log("GPT Response:", outputText);
+            })
+            .catch((error) => {
+              console.error("Failed to chat with GPT:", error);
+            });
+      }
     }
     if (command === "cocokga") {
       console.log(message.content);
