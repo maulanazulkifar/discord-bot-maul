@@ -5,8 +5,6 @@ const {
   Partials,
   VoiceChannel,
 } = require("discord.js");
-const ytdl = require("ytdl-core");
-const cheerio = require("cheerio");
 
 const client = new Client({
   intents: [
@@ -15,6 +13,7 @@ const client = new Client({
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildEmojisAndStickers
   ],
   partials: [Partials.Channel],
 });
@@ -31,7 +30,7 @@ client.on("messageCreate", (message) => {
     const command = args.shift().toLowerCase();
 
     // Tanggapi perintah 'ping'
-    if (command === "tanyamaul") {
+    if (command === "tanyacoco") {
       chatWithGPT(message.content)
         .then((outputText) => {
           message.reply(outputText);
@@ -41,23 +40,27 @@ client.on("messageCreate", (message) => {
           console.error("Failed to chat with GPT:", error);
         });
     }
-    if (command === "rank") {
-      message.reply("Rank aku Iron 3 tapi aku sudah tumbuh dan berkembang :)");
-    }
-    if (command === "pacaradan") {
-      message.reply("Beby");
-    }
-    if (command === "pacarcece") {
-      message.reply("Adhinata");
-    }
-    if (command === "pacarafung") {
-      message.reply("Masi kecil gabole pacaran dulu");
-    }
-    if (command === "pacarmaul") {
-      message.reply("The one and only Valarie Santhya Vortexio");
+    if (command === "cocokga") {
+      console.log(message.content);
+// Membuang bagian "!cocokga" dari string command
+      const commandWithoutPrefix = message.content.slice(message.content.indexOf(' ') + 1);
+
+// Memisahkan string berdasarkan tanda "+" dan membersihkan spasi
+      const [sname, fname] = commandWithoutPrefix.split('+').map(str => str.trim());
+      if (sname === "Maulana Zulkifar" || fname === "Maulana Zulkifar") {
+        message.reply(`Tidak bisa memberikan tanggapan`);
+      }else if (sname === "maul" || fname === "maul") {
+        message.reply(`Tidak bisa memberikan tanggapan, karena maul pria idaman bagi semua wanita`);
+      } else {
+        loveMeter(fname, sname).then(res => {
+          message.reply(`${res.percentage}, ${res.result}`);
+        });
+      }
+
     }
   }
 });
+
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
@@ -94,6 +97,24 @@ async function chatWithGPT(message) {
   }
 }
 
+async function loveMeter(fname, sname) {
+  try {
+    const response = await axios.get(
+        `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`,
+        {
+          headers: {
+            "X-RapidAPI-Key": "6fb0c86bbbmsh7f2bfa730abf6dap165303jsn6a28a3cf0055",
+            "X-RapidAPI-Host": `love-calculator.p.rapidapi.com`,
+          },
+        }
+    );
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error.response.data);
+  }
+}
+
 client.login(
-  "MTIxMDUxNjc4NzU1MzM3NDI2OA.GXIy-Y.omtMJtm8czxuvI4pF5kze_d2cyxxfXqCaNK7RI"
+  "MTIyMjM3NTc3MTgwNTMxOTIzOA.GsRUHK.5Zzi5CsWoHWrGtnb2CkuiAXPGq20ddwjvThIQc"
 );
