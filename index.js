@@ -34,6 +34,8 @@ client.on("messageCreate", (message) => {
       const commandWithoutPrefix = message.content.slice(message.content.indexOf(' ') + 1);
       if (commandWithoutPrefix === "aku ke kota ga hari ini?") {
         message.reply("jangan ke kota mending sentuh rumput");
+      } else if (commandWithoutPrefix === "1+1?") {
+        message.reply("3");
       } else {
         chatWithGPT(message.content)
             .then((outputText) => {
