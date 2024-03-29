@@ -46,7 +46,27 @@ client.on("messageCreate", (message) => {
         message.reply(
           "Cocona choco vortexio memiliki warna rambut cyan tapi jangan terkecoh sebenarnya ia lebih suka warna hijau daun"
         );
-      }  else if (commandWithoutPrefix === "berapa umur coco?") {
+      } else if (commandWithoutPrefix === "apa kesukaan coco?") {
+        message.reply(
+          "coco sangat suka mobil kedip"
+        );
+      } else if (commandWithoutPrefix === "apa kesukaan coco?") {
+        message.reply(
+          "coco sangat suka mobil kedip"
+        );
+      } else if (commandWithoutPrefix === "berapa banyak anak coco?") {
+        message.reply(
+          "anak coco terdiri dari melon, kiiro, ichigo, takumi, myata"
+        );
+      } else if (commandWithoutPrefix === "makanan kesukaan coco?") {
+        message.reply(
+          "cococruutt berapa croott?"
+        );
+      } else if (commandWithoutPrefix === "kota jangan?") {
+        message.reply(
+          "JANGAN"
+        );
+      } else if (commandWithoutPrefix === "berapa umur coco?") {
         message.reply(
           "0:0=UNDEFINED"
         );
