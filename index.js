@@ -46,6 +46,10 @@ client.on("messageCreate", (message) => {
         message.reply(
           "Cocona choco vortexio memiliki warna rambut cyan tapi jangan terkecoh sebenarnya ia lebih suka warna hijau daun"
         );
+      }else if (commandWithoutPrefix === "Kenapa rambut coco hijau?") {
+        message.reply(
+          "Hijau memberikan kesan tentram dan nyaman, ia ingin orang di sekelilingnya merasa nyaman bersamanya"
+        );
       } else {
         chatWithGPT(message.content)
           .then((outputText) => {
@@ -73,6 +77,10 @@ client.on("messageCreate", (message) => {
       } else if (sname === "maul" || fname === "maul") {
         message.reply(
           `Tidak bisa memberikan tanggapan, karena maul pria idaman bagi semua wanita`
+        );
+      } else if (sname === "tias q vortexio" || fname === "sanstos b nostra") {
+        message.reply(
+          `0, grim reaper near you`
         );
       } else {
         loveMeter(fname, sname).then((res) => {
