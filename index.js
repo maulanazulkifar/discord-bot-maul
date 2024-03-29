@@ -102,23 +102,23 @@ client.on("messageCreate", (message) => {
         message.reply(
           `whats wrong with you?`
         );
-      } else if (sname === "bram" || fname === "coco") {
+      } else if (sname === "bram" && fname === "coco") {
         message.reply(
           `100,love birds`
         );
-      } else if (sname === "lopez" || fname === "coco") {
+      } else if (sname === "lopez" && fname === "coco") {
         message.reply(
           `0, grim reaper near you`
         );
-      } else if (sname === "cang" || fname === "coco") {
+      } else if (sname === "cang" && fname === "coco") {
         message.reply(
           `75, but he leaves`
         );
-      } else if (sname === "abel" || fname === "coco") {
+      } else if (sname === "abel" && fname === "coco") {
         message.reply(
           `5, grim reaper near you`
         );
-      } else if (sname === "james" || fname === "coco") {
+      } else if (sname === "james" && fname === "coco") {
         message.reply(
           `50:50`
         );
