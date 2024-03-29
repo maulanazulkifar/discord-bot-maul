@@ -46,9 +46,17 @@ client.on("messageCreate", (message) => {
         message.reply(
           "Cocona choco vortexio memiliki warna rambut cyan tapi jangan terkecoh sebenarnya ia lebih suka warna hijau daun"
         );
-      }else if (commandWithoutPrefix === "Kenapa rambut coco hijau?") {
+      }  else if (commandWithoutPrefix === "berapa umur coco?") {
         message.reply(
-          "Hijau memberikan kesan tentram dan nyaman, ia ingin orang di sekelilingnya merasa nyaman bersamanya"
+          "0:0=UNDEFINED"
+        );
+      } else if (commandWithoutPrefix === "Siapa bapak coco?") {
+        message.reply(
+          "bihun buapak terdebest"
+        );
+      }else if (commandWithoutPrefix === "kota ga bos?") {
+        message.reply(
+          "skip, mending turu"
         );
       } else {
         chatWithGPT(message.content)
